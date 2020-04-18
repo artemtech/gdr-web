@@ -5,8 +5,15 @@
         <div class="row">
             {{ range .Paginator.Pages }}
             <div class="col-md-6 col-lg-4 mb-5">
-                <a class="single-post" href="single.html">
-                    <img class="img-fluid post-thumbnail" src="assets/img/blog-post.png">
+                <a class="single-post" href="{{ .Permalink }}">
+                    {{/* Jika tidak ada field images, kita tampilkan gambar default di "img/blog-post.png" */}}
+                    {{ if .Params.images }}
+                    {{ range first 1 .Params.images }}
+                        <img class="img-fluid post-thumbnail" src="{{ . | absURL }}">
+                    {{ end }}
+                    {{ else }}
+                        <img class="img-fluid post-thumbnail" src="{{ "/img/blog-post.png" | absURL }}">
+                    {{ end }}
                     <small class="post-tanggal">24 februari 2020</small>
                     <h4 class="post-judul">{{ .Params.Title }}</h4>
                     <p>{{ .Summary }}</p>
