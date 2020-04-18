@@ -4,7 +4,7 @@ title = "Gerak Dari Rumah"
 theme = "gdr"
 Paginate = 3
 #googleAnalytics = "UA-123-45"
-disqusShortname = "artemtech"
+disqusShortname = "sofyan-gdr"
 [params]
   title = "Gerak Dari rumah"
   alamat = "Perumahan Taman Cimanggu<br>Jl. Tanjung VIII No. 14 Bogor<br>"
