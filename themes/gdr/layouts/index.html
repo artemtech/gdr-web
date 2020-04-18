@@ -46,20 +46,27 @@
         <div class="container">
             <h2 class="title">Blog #GerakDariRumah</h2>
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-5"><a class="single-post" href="#"><img class="img-fluid post-thumbnail" src="/img/blog-post.png"><small class="post-tanggal">24 februari 2020</small><h4 class="post-judul">Judul Berita Disini</h4><p>Dana terkumpul akan disalurkan oleh penyelenggara ke pihak membutuhkan di Indonesia ...</p><button class="btn btn-primary btn-more" type="button">Selengkapnya</button></a></div>
-                <div
-                    class="col-md-6 col-lg-4 mb-5"><a class="single-post" href="#"><img class="img-fluid post-thumbnail" src="/img/blog-post.png"><small class="post-tanggal">24 februari 2020</small><h4 class="post-judul">Judul Berita Disini</h4><p>Dana terkumpul akan disalurkan oleh penyelenggara ke pihak membutuhkan di Indonesia ...</p><button class="btn btn-primary btn-more" type="button">Selengkapnya</button></a></div>
-            <div
-                class="col-md-6 col-lg-4 mb-5"><a class="single-post" href="#"><img class="img-fluid post-thumbnail" src="/img/blog-post.png"><small class="post-tanggal">24 februari 2020</small><h4 class="post-judul">Judul Berita Disini</h4><p>Dana terkumpul akan disalurkan oleh penyelenggara ke pihak membutuhkan di Indonesia ...</p><button class="btn btn-primary btn-more" type="button">Selengkapnya</button></a></div>
-        <div
-            class="col-md-6 col-lg-4 mb-5"><a class="single-post" href="#"><img class="img-fluid post-thumbnail" src="/img/blog-post.png"><small class="post-tanggal">24 februari 2020</small><h4 class="post-judul">Judul Berita Disini</h4><p>Dana terkumpul akan disalurkan oleh penyelenggara ke pihak membutuhkan di Indonesia ...</p><button class="btn btn-primary btn-more" type="button">Selengkapnya</button></a></div>
-    <div
-        class="col-md-6 col-lg-4 mb-5"><a class="single-post" href="#"><img class="img-fluid post-thumbnail" src="/img/blog-post.png"><small class="post-tanggal">24 februari 2020</small><h4 class="post-judul">Judul Berita Disini</h4><p>Dana terkumpul akan disalurkan oleh penyelenggara ke pihak membutuhkan di Indonesia ...</p><button class="btn btn-primary btn-more" type="button">Selengkapnya</button></a></div>
-        <div
-            class="col-md-6 col-lg-4 mb-5"><a class="single-post" href="#"><img class="img-fluid post-thumbnail" src="/img/blog-post.png"><small class="post-tanggal">24 februari 2020</small><h4 class="post-judul">Judul Berita Disini</h4><p>Dana terkumpul akan disalurkan oleh penyelenggara ke pihak membutuhkan di Indonesia ...</p><button class="btn btn-primary btn-more" type="button">Selengkapnya</button></a></div>
+                {{ range .Paginator.Pages }}
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <a class="single-post" href="{{ .Permalink }}">
+                            {{/* Jika tidak ada field images, kita tampilkan gambar default di "img/blog-post.png" */}}
+                            {{ if .Params.images }}
+                            {{ range first 1 .Params.images }}
+                                <img class="img-fluid post-thumbnail" src="{{ . | absURL }}">
+                            {{ end }}
+                            {{ else }}
+                                <img class="img-fluid post-thumbnail" src="{{ "/img/blog-post.png" | absURL }}">
+                            {{ end }}
+                            <small class="post-tanggal">{{.Params.date}}</small>
+                            <h4 class="post-judul">{{ .Title }}</h4>
+                            {{ .Summary }}
+                            <button class="btn btn-primary btn-more" type="button">Selengkapnya</button>
+                        </a>
+                    </div>
+                {{ end }}
             </div>
             <div class="row">
-                <div class="col text-center"><button class="btn btn-info border rounded-0" type="button">Lihat Lainnya</button></div>
+                <div class="col text-center"><a href="/posts" class="btn btn-info border rounded-0" type="button">Lihat Lainnya</a></div>
             </div>
             </div>
             </div>
