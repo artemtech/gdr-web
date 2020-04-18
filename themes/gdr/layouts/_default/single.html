@@ -1,0 +1,45 @@
+{{ define "main" }}
+<div class="blog-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="title">{{ .Params.Title }}</h2>
+                <p class="text-center"><span class="by">by</span> <a href="#">{{ .Params.author }}</a><span class="date">Sept 8th, 2016 </span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="intro">
+                    {{ range .Params.images }}
+                        <img class="img-fluid" src="{{ . | absURL }}">
+                    {{ end }}
+                </div>
+                <div class="text">
+                    {{ .Content }}
+                </div>
+            </div>
+            <div class="col">
+                <h4>Kategori</h4>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                    <li>Item 4</li>
+                </ul>
+                <h4>Pos Terkini</h4>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                    <li>Item 4</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <p>LETAKKAN DISQUS DISINI</p>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

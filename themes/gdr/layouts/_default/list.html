@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="blog-section py-5">
+    <div class="container">
+        <h2 class="title">Blog #GerakDariRumah</h2>
+        <div class="row">
+            {{ range .Paginator.Pages }}
+            <div class="col-md-6 col-lg-4 mb-5">
+                <a class="single-post" href="single.html">
+                    <img class="img-fluid post-thumbnail" src="assets/img/blog-post.png">
+                    <small class="post-tanggal">24 februari 2020</small>
+                    <h4 class="post-judul">{{ .Params.Title }}</h4>
+                    <p>{{ .Summary }}</p>
+                    <button class="btn btn-primary btn-more" type="button">Selengkapnya</button>
+                </a>
+            </div>
+            {{ end }}
+            
+        <div class="row">
+            <div class="col">
+                {{ template "_internal/pagination.html" . }}
+            </div>
+        </div>
+        </div>
+        </div>
+{{ end }}

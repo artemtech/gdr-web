@@ -1,0 +1,5 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Gerak Dari Rumah"
+theme = "gdr"
+Paginate = 3
